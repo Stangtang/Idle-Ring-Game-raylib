@@ -3,6 +3,7 @@
 #include <vector>
 #include "ring.h"
 #include "shop.h"
+#include "save.h"
 
 const Color background_color = RAYWHITE;
 
@@ -13,24 +14,26 @@ int main() {
     InitWindow(screen_width, screen_height, "Idle Ring");
     SetTargetFPS(120);
 
-    rings.emplace_back(1, 
-        ring_info_map.at(1).radius,
-        ring_info_map.at(1).degrees_per_second,
-        ring_info_map.at(1).color);
+    load_game();
 
-    money = 0;
-    current_ring = 1;
+    if (rings.empty()) {
+        rings.emplace_back(1,
+            ring_info_map.at(1).radius,
+            ring_info_map.at(1).degrees_per_second,
+            ring_info_map.at(1).color
+        );
+        money = 0;
+        current_ring = 1;
+    }
 
     while (!WindowShouldClose()) {
         float dt = GetFrameTime();
 
-        for (int i = rings.size() - 1; i >= 0; i--) {
+        for (int i = 0; i < rings.size(); i++) {
             rings[i].current_angle += rings[i].degrees_per_second * dt;
             if (rings[i].current_angle >= 360) {
                 rings[i].current_angle -= 360;
-                for (int j = i; j < rings.size(); j++) {
-                    money++;
-                }
+                money += rings.size() - i;
             }
         }
 
@@ -44,6 +47,8 @@ int main() {
 
         EndDrawing();
     }
+
+    save_game();
 
     CloseWindow();
 }

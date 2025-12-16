@@ -129,10 +129,12 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ring.cpp" />
+    <ClCompile Include="save.cpp" />
     <ClCompile Include="shop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ring.h" />
+    <ClInclude Include="save.h" />
     <ClInclude Include="shop.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

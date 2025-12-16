@@ -24,12 +24,18 @@
     <ClCompile Include="ring.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="save.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="save.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
