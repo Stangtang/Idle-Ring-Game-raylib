@@ -11,17 +11,17 @@ struct Ring {
     unsigned int ring_number;
     unsigned int radius;
     double current_angle;
-    double degrees_per_second;
+    double speed;
     Color color;
 
     Ring(unsigned int n, unsigned int r, double s, Color c)
-        : ring_number(n), radius(r), degrees_per_second(s), color(c), current_angle(0) {
+        : ring_number(n), radius(r), speed(s), color(c), current_angle(0) {
     }
 };
 
 struct Ring_Info {
     const unsigned int radius;
-    const double degrees_per_second;
+    const double speed;
     const Color color;
 };
 

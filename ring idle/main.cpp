@@ -19,7 +19,7 @@ int main() {
     if (rings.empty()) {
         rings.emplace_back(1,
             ring_info_map.at(1).radius,
-            ring_info_map.at(1).degrees_per_second,
+            ring_info_map.at(1).speed,
             ring_info_map.at(1).color
         );
         money = 0;
@@ -30,7 +30,7 @@ int main() {
         float dt = GetFrameTime();
 
         for (int i = 0; i < rings.size(); i++) {
-            rings[i].current_angle += rings[i].degrees_per_second * dt;
+            rings[i].current_angle += rings[i].speed * dt;
             if (rings[i].current_angle >= 360) {
                 rings[i].current_angle -= 360;
                 money += rings.size() - i;

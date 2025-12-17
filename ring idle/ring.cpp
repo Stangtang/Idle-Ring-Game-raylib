@@ -46,6 +46,6 @@ void draw_rings(const std::vector<Ring>& rings, const unsigned int& screen_width
 void add_new_ring(std::vector<Ring>& rings, const unsigned int& ring_number) {
     rings.emplace(rings.begin(), ring_number,
         ring_info_map.at(ring_number).radius,
-        ring_info_map.at(ring_number).degrees_per_second,
+        ring_info_map.at(ring_number).speed,
         ring_info_map.at(ring_number).color);
 }

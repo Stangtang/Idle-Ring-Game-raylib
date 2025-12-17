@@ -45,7 +45,7 @@ void load_game() {
 
         rings.emplace_back(ring_number,
             ring_info_map.at(ring_number).radius,
-            ring_info_map.at(ring_number).degrees_per_second,
+            ring_info_map.at(ring_number).speed,
             ring_info_map.at(ring_number).color
         );
         rings.back().current_angle = angle;
@@ -58,7 +58,7 @@ void load_game() {
     double seconds_offline = static_cast<double>(now_seconds - saved_seconds);
     if (seconds_offline > 0) {
         for (int i = rings.size() - 1; i >= 0; i--) {
-            unsigned long long rotations = static_cast<unsigned long long>((rings[i].degrees_per_second * seconds_offline) / 360.0);
+            unsigned long long rotations = static_cast<unsigned long long>((rings[i].speed * seconds_offline) / 360.0);
             money += rotations * (rings.size() - i);
         }
     }
